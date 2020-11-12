@@ -6,10 +6,10 @@ html, body{
   font-family: 'Montserrat', sans-serif;
 }
 .positive{
-  color: #00BCD4;
+  color: #00bfd7;
 }
 .negative{
-  color: #FF7043;
+  color: #ff652f;
 }
 
 .bg-black{
@@ -27,12 +27,19 @@ html, body{
 .black{
   color: #212121;
 }
+
 #header-chart-container{
   text-align: center;
+  display: inline-block;
+	position: relative;
+	width: 100%;
+	vertical-align: middle;
+	overflow: hidden;
 }
+
 .type-toggle{
-  padding: 0.5em;
-  width: 20em;
+  padding: 0.2em;
+  width: 15em;
   border: 1px solid #212121;
   text-align: center
 }
@@ -51,4 +58,28 @@ html, body{
 
 .content{
   border-top: 1px solid #eee;
+  min-height: 500px;
+}
+.header-nav {
+  /* position: fixed; */
+}
+
+.header-theme{
+  padding: 0.2em;
+  width: 20em;
+  border: 1px solid #212121;
+  text-align: center
+}
+.header-theme.active{
+  background-color: #212121;
+  color: #fff;
+}
+
+#bubble-spread{
+  padding: 0 7em;
+}
+
+footer{
+  height: 150px;
+  background-color: #eee;
 }

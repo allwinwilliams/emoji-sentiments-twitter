@@ -11,12 +11,12 @@ let counts = {
   }, positive: {
     count: 0,
     score: 0,
-    color: '#00BCD4',
+    color: '#00bfd7',
     name: 'positive'
   }, negative: {
     count: 0,
     score: 0,
-    color: '#FF7043',
+    color: '#ff652f',
     name: 'negative'
   }
 };
@@ -77,6 +77,7 @@ fetch(`${SNAPSHOT_URL}/v1/rankings`)
           counts.total.count += value;
           counts.total.score += value;
           // console.log(counts);
+          updateCharts();
       })
     }
   })
