@@ -5,3 +5,50 @@ html, body{
 *{
   font-family: 'Montserrat', sans-serif;
 }
+.positive{
+  color: #00BCD4;
+}
+.negative{
+  color: #FF7043;
+}
+
+.bg-black{
+  background-color: #212121;
+}
+
+.white{
+  color: #ffffff;
+}
+
+.bg-white{
+  background-color: #ffffff;
+}
+
+.black{
+  color: #212121;
+}
+#header-chart-container{
+  text-align: center;
+}
+.type-toggle{
+  padding: 0.5em;
+  width: 20em;
+  border: 1px solid #212121;
+  text-align: center
+}
+
+.type-toggle.active{
+  background-color: #212121;
+  color: #fff;
+}
+
+.btn.counter-reset:hover{
+  color: #ffffff !important;
+}
+.header{
+  margin: 50px 100px;
+}
+
+.content{
+  border-top: 1px solid #eee;
+}
