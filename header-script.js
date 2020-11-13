@@ -22,9 +22,9 @@ let updateCounts = () => {
   }
   $('#trivia')
     .html(`<h3>The positive emojis make up
-      <b class='positive'>${positive_percent} %</b>
+      <b class='positive'>${positive_percent || 0} %</b>
       and the negative ones are at
-      <b class='negative'>${negative_percent} %</b>
+      <b class='negative'>${negative_percent || 0} %</b>
     .</h3>`)
 };
 
