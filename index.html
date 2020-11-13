@@ -18,47 +18,55 @@
   <body>
     <div class="header mb-0">
       <div class="header-nav">
-        <h1><b>Sentiments on twitter</b></h1>
+        <h1><b>Emojis on twitter</b></h1>
         <div class="row mt-5">
           <div class="col-2">
-            <div id="live-count-selector" class="type-toggle rounded-pill pt-4 active" type="button" onclick="switchToLive()">
+            <div id="live-count-selector" class="type-toggle rounded-pill pt-2 active" type="button" onclick="switchToLive()">
               For the past <p id="time-passed" class="d-inline"></p> seconds
-              <b><p id="live-count"></p></b>
+              <b><p id="live-count" class="mb-0"></p></b>
             </div>
             <button id="counter-reset-button" class="mt-3 btn bg-black white rounded-pill mx-2 counter-reset" onclick="resetCounter()">Reset Counter</button>
           </div>
           <div class="col-2">
-            <div id="total-count-selector" class="type-toggle rounded-pill pt-4" type="button" onclick="switchToTotal()">
+            <div id="total-count-selector" class="type-toggle rounded-pill pt-2" type="button" onclick="switchToTotal()">
               Total count
-              <b><p id="total-count" class=""></p></b>
+              <b><p id="total-count" class="mb-0"></p></b>
             </div>
           </div>
           <div class="col-5"></div>
-          <div class="col-3 px-1">
-            <div id="bar-race-button" class="header-theme bar-race rounded-pill my-1 active" onclick="barRace()">
-              Bar race
-            </div>
-            <div id="button-spread-button" class="header-theme bubble-blossom rounded-pill my-1" onclick="bubblesSpread()">
-              Bubbles spread
-            </div>
-            <div id="roller-coaster-button" class="header-theme roller-coaster rounded-pill my-1" onclick="rollerCoaster()">
-              Roller coster
-            </div>
-            <div id="emoji-battle-button" class="header-theme emoji-battle rounded-pill my-1" onclick="emojiBattle()">
-              Emoji battle
-            </div>
-          </div>
           <div class="col-2">
           </div>
         </div>
       </div>
     </div>
+
     <div id="trivia" class="text-center black mt-5 pt-5"></div>
     <div id="header-chart-container" class="mb-5 pb-5 pt-2">
     </div>
+
     <img id="bubble-spread" class="w-100" src="./assets/bubble-dummy.png"/>
     <img id="roller-coaster" class="w-100 mt-2" src="./assets/roller-coaster.png"/>
     <img id="emoji-battle" class="w-100" src="./assets/emoji-battle.png"/>
+
+    <div class="chart-style-options px-1 mx-auto text-center">
+      <div class="container">
+        <div class="row mx-5">
+          <div id="bar-race-button" class="col header-theme bar-race rounded-pill my-1 mx-5 active" onclick="barRace()">
+            Bar race
+          </div>
+          <div id="button-spread-button" class="col header-theme bubble-blossom rounded-pill mx-5 my-1" onclick="bubblesSpread()">
+            Bubbles spread
+          </div>
+          <div id="roller-coaster-button" class="col header-theme roller-coaster rounded-pill mx-5 my-1" onclick="rollerCoaster()">
+            Roller coster
+          </div>
+          <div id="emoji-battle-button" class="col header-theme emoji-battle rounded-pill mx-5 my-1" onclick="emojiBattle()">
+            Emoji battle
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="content mt-5 pt-5">
       <div class="text-center">
         <h5>Pair contests</h5>

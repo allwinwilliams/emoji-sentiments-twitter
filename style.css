@@ -40,13 +40,13 @@ html, body{
 .type-toggle{
   padding: 0.2em;
   width: 15em;
-  border: 1px solid #212121;
+  border: 1px solid #ccc;
   text-align: center
 }
 
 .type-toggle.active{
-  background-color: #212121;
-  color: #fff;
+  background-color: #ccc;
+  color: #212121;
 }
 
 .btn.counter-reset:hover{
@@ -67,12 +67,12 @@ html, body{
 .header-theme{
   padding: 0.2em;
   width: 20em;
-  border: 1px solid #212121;
+  border: 1px solid #ccc;
   text-align: center
 }
 .header-theme.active{
-  background-color: #212121;
-  color: #fff;
+  background-color: #ccc;
+  color: #212121;
 }
 
 #bubble-spread{
