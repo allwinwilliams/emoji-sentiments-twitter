@@ -11,6 +11,21 @@ let resetCounter = () => {
 let updateCounts = () => {
   $('#live-count').text(`${counts.positive.count + counts.negative.count}`);
   $('#total-count').text(`${counts.positive.score + counts.negative.score}`);
+  let positive_percent = 0;
+  let negative_percent = 0;
+  if(isOnlyLive){
+    positive_percent = Math.round(100 * counts.positive.count / (counts.positive.count + counts.negative.count));
+    negative_percent = Math.round(100 * counts.negative.count / (counts.positive.count + counts.negative.count));
+  } else {
+    positive_percent = Math.round(100 * counts.positive.score / (counts.positive.score + counts.negative.score));
+    negative_percent = Math.round(100 * counts.negative.score / (counts.positive.score + counts.negative.score));
+  }
+  $('#trivia')
+    .html(`<h3>The positive emojis make up
+      <b class='positive'>${positive_percent} %</b>
+      and the negative ones are at
+      <b class='negative'>${negative_percent} %</b>
+    .</h3>`)
 };
 
 let switchToLive = () => {
