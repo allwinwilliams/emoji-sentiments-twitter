@@ -15,6 +15,10 @@ let getIdOfSentiment = (sentiment_type = 'tears') => {
   return club;
 };
 
+let dataValues = (id) =>{
+  return  emoji_store[id];
+};
+
 let contest = (sentiment_type = 'tears') => {
   let emoji_counts = {
     positive: 0,
@@ -30,6 +34,8 @@ let contest = (sentiment_type = 'tears') => {
     }
   })
 };
+
+let startTime = new Date($.now());
 
 $('#bubble-spread').hide();
 $('#roller-coaster').hide();
@@ -68,7 +74,6 @@ let rollerCoaster = () => {
   $('#emoji-battle-button').removeClass('active');
 };
 
-
 let emojiBattle = () => {
   $('#header-chart-container').hide();
   $('#bubble-spread').hide();
@@ -79,3 +84,13 @@ let emojiBattle = () => {
   $('#roller-coaster-button').removeClass('active');
   $('#emoji-battle-button').addClass('active');
 };
+
+let updateTime = () => {
+  $('#time-passed').text(`${Math.floor((new Date($.now()) - startTime) / 1000) }`);
+};
+
+$(document).ready(() => {
+  setInterval(() => {
+    updateTime();
+  }, 1000);
+});

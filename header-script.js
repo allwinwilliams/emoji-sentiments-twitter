@@ -42,10 +42,6 @@ let switchToTotal = () => {
   isOnlyLive = false;
 };
 
-let updateTime = () => {
-  $('#time-passed').text(`${Math.floor((new Date($.now()) - startTime) / 1000) }`);
-};
-
 let updateBar = (bar, positive, negative) => {
     const distance = graphWidth / (positive + negative);
     bar
@@ -84,8 +80,6 @@ const height = 400;
 const margin = {'top': 100, 'right': 300, 'bottom': 100, 'left': 300};
 const graphWidth = width - margin.left - margin.right;
 const graphHeight = height - margin.top - margin.bottom;
-
-let startTime = new Date($.now());
 
 let isOnlyLive = true;
 
@@ -175,8 +169,4 @@ $(document).ready(() => {
   //   }
   //   updateCounts();
   // }, 50);
-
-  setInterval(() => {
-    updateTime();
-  }, 1000);
 });
