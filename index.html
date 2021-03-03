@@ -13,7 +13,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
   </head>
   <body>
     <div class="header mb-0">
@@ -44,7 +43,6 @@
     <div id="header-chart-container" class="mb-5 pb-5 pt-2">
     </div>
 
-    <img id="bubble-spread" class="w-100" src="./assets/bubble-dummy.png"/>
     <img id="roller-coaster" class="w-100 mt-2" src="./assets/roller-coaster.png"/>
     <img id="emoji-battle" class="w-100" src="./assets/emoji-battle.png"/>
 
@@ -53,9 +51,6 @@
         <div class="row mx-5">
           <div id="bar-race-button" class="col header-theme bar-race rounded-pill my-1 mx-5 active" onclick="barRace()">
             Bar race
-          </div>
-          <div id="button-spread-button" class="col header-theme bubble-blossom rounded-pill mx-5 my-1" onclick="bubblesSpread()">
-            Bubbles spread
           </div>
           <div id="roller-coaster-button" class="col header-theme roller-coaster rounded-pill mx-5 my-1" onclick="rollerCoaster()">
             Roller coster
@@ -70,14 +65,27 @@
     <div class="content mt-5 pt-5">
       <div class="text-center">
         <h5>Pair contests</h5>
-        <div class="dummy-div mt-5">
-          <img class="w-100" src = "./assets/content-dummy.png" />
+        <div class="text-center mt-5">
+          <div class="my-4">
+            <h6>Tears<h6>
+            <div id="fight-1"></div>
+          </div>
+          <div class="my-4">
+            <h6>Hearts</h6>
+            <div id="fight-2"></div>
+          </div>
+          <div class="my-4">
+            <h6>Thumbs</h6>
+            <div id="fight-3"></div>
+          </div>
         </div>
+
         <div class="my-5 pb-5">
           <h5>Make your own contest</h5>
-          <div id="fight-1"></div>
           <div>
             <img class="w-100" src="./assets/own-contest-dummy.png" />
+            
+            <div id="user-contest"></div>
           </div>
         </div>
         <div class="text-content text-center my-5 py-5 border-top">
@@ -99,9 +107,11 @@
       </div>
     </footer>
 
+    <script src="./script.js" charset="utf-8"></script>
     <script src="./services.js" charset="utf-8"></script>
+    <script src="./helpers.js" charset="utf-8"></script>
     <script src="./header-script.js" charset="utf-8"></script>
     <script src="./bar-fight.js" charset="utf-8"></script>
-    <script src="./script.js" charset="utf-8"></script>
+
   </body>
 </html>
