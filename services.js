@@ -7,17 +7,20 @@ let counts = {
     count: 0,
     score: 0,
     color: '#000000',
-    name: 'total'
+    name: 'total',
+    emojis: ''
   }, positive: {
     count: 0,
     score: 0,
     color: '#00bfd7',
-    name: 'positive'
+    name: 'positive',
+    emojis: ''
   }, negative: {
     count: 0,
     score: 0,
     color: '#ff652f',
-    name: 'negative'
+    name: 'negative',
+    emojis: ''
   }
 };
 
@@ -43,9 +46,11 @@ fetch(`${SNAPSHOT_URL}/v1/rankings`)
         if(data.sentiment){
           if(data.sentiment == 'positive'){
             counts.positive.score += data.score;
+            counts.positive.emojis += data.char;
           }
           if(data.sentiment == 'negative'){
             counts.negative.score += data.score;
+            counts.negative.emojis += data.char;
           }
         }
     });

@@ -133,7 +133,7 @@ class BarFight{
     let right_score = this.sum_scores(this.right);
     this.counts.left.score = left_score;
     this.counts.right.score = right_score;
-    
+
     this.updateText(this.left, this.right);
 
     if(this.isOnlyLive == true){
@@ -152,25 +152,16 @@ class BarFight{
     this.counts.right.DOM_elements.label
       .text(this.renderEmojiChars(this.right));
 
-    if(this.isOnlyLive == true){
-      this.counts.left.DOM_elements.number
-        .text(this.counts.left.count)
-        .attr('fill', this.counts.left.color);
+    let left_number = this.isOnlyLive ? this.counts.left.count : this.counts.left.score;
+    let right_number = this.isOnlyLive ? this.counts.right.count : this.counts.right.score;
 
-      this.counts.right.DOM_elements.number
-        .text(this.counts.right.count)
-        .attr('fill', this.counts.right.color);
-    }
+    this.counts.left.DOM_elements.number
+      .text(left_number)
+      .attr('fill', this.counts.left.color);
 
-    if(this.isOnlyLive == false){
-      this.counts.left.DOM_elements.number
-        .text(this.counts.left.score)
-        .attr('fill', this.counts.left.color);
-
-      this.counts.right.DOM_elements.number
-        .text(this.counts.right.score)
-        .attr('fill', this.counts.right.color);
-    }
+    this.counts.right.DOM_elements.number
+      .text(right_number)
+      .attr('fill', this.counts.right.color);
 
   }
 

@@ -59,6 +59,12 @@ let updateLabelTexts = (element, data, isLive) =>{
 
   d3.select('#text-negative-count')
     .text(negative_count);
+
+  // d3.select('#text-label-positive')
+  //   .text(data.positive.emojis);
+  //
+  // d3.select('#text-label-negative')
+  //   .text(data.negative.emojis);
 };
 
 let updateCharts = () => {
@@ -118,13 +124,13 @@ d3.select('#text-label-positive')
   .append('text')
   .text('Positive')
   .attr('fill', '#00bfd7')
-  .attr('transform', `translate(${0}, ${50})`);
+  .attr('transform', `translate(${0}, ${30})`);
 
 d3.select('#text-label-negative')
   .append('text')
   .text('Negative')
   .attr('fill', '#ff652f')
-  .attr('transform', `translate(${1200}, ${50})`);
+  .attr('transform', `translate(${1200}, ${30})`);
 
 d3.select('#text-label-positive')
   .append('text')
@@ -132,7 +138,7 @@ d3.select('#text-label-positive')
   .attr('fill', '#00bfd7')
   .attr('font-weight', 'bold')
   .attr('font-size', '1.5em')
-  .attr('transform', `translate(${0}, ${100})`);
+  .attr('transform', `translate(${0}, ${80})`);
 
 d3.select('#text-label-negative')
   .append('text')
@@ -140,22 +146,56 @@ d3.select('#text-label-negative')
   .attr('fill', '#ff652f')
   .attr('font-weight', 'bold')
   .attr('font-size', '1.5em')
-  .attr('transform', `translate(${1200}, ${100})`);
+  .attr('transform', `translate(${1200}, ${80})`);
 
-d3.select('#text-label-positive')
+let positive_label = d3.select('#text-label-positive')
   .append('text')
-  .text('😂😬😀😁🥳')
+  .text('')
   .attr('fill', '#00bfd7')
-  .attr('font-size', '1.5em')
-  .attr('transform', `translate(${0}, ${150})`);
+  .attr('font-size', '1.2em')
+  .attr('transform', `translate(${0}, ${80})`)
+  .attr('x', '0')
+  .attr('y', '10');
 
-d3.select('#text-label-negative')
+positive_label
+  .append('tspan')
+  .text('❤️😂😍😊💕😘😁👌')
+  .attr('x', '0')
+  .attr('y', '50');
+positive_label
+  .append('tspan')
+  .text('😉👍😎😋😄💗💛💞')
+  .attr('x', '0')
+  .attr('y', '80');
+positive_label
+  .append('tspan')
+  .text('😆😀😃😬😇😚😙😗')
+  .attr('x', '0')
+  .attr('y', '110');
+
+
+let negative_label = d3.select('#text-label-negative')
   .append('text')
-  .text('😭😑😔😟😥')
+  .text('')
   .attr('fill', '#ff652f')
-  .attr('font-size', '1.5em')
-  .attr('transform', `translate(${1200}, ${150})`);
+  .attr('font-size', '1.2em')
+  .attr('transform', `translate(${1200}, ${80})`);
 
+  negative_label
+    .append('tspan')
+    .text('😭😒😔😩😏💔😢')
+    .attr('x', '0')
+    .attr('y', '50');
+  negative_label
+    .append('tspan')
+    .text('😑😞😕😡😫👈😤')
+    .attr('x', '0')
+    .attr('y', '80');
+  negative_label
+    .append('tspan')
+    .text('😣😓😠😖👎😰')
+    .attr('x', '0')
+    .attr('y', '110');
 $(document).ready(() => {
   // setInterval(() => {
   //   if(isOnlyLive == true){
