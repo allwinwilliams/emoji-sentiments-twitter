@@ -161,17 +161,17 @@ let positive_label = d3.select('#text-label-positive')
 
 positive_label
   .append('tspan')
-  .text('❤️😂😍😊💕😘😁👌')
+  .text('❤️😂😍😊💕😘😁')
   .attr('x', '0')
   .attr('y', '50');
 positive_label
   .append('tspan')
-  .text('😉👍😎😋😄💗💛💞')
+  .text('👌😉👍😎😋😄💗')
   .attr('x', '0')
   .attr('y', '80');
 positive_label
   .append('tspan')
-  .text('😆😀😃😬😇😚😙😗')
+  .text('💛💞😀😃😬😇')
   .attr('x', '0')
   .attr('y', '110');
 
