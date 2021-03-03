@@ -81,14 +81,17 @@
           </div>
         </div>
 
-        <div class="my-5 pb-5">
+        <div class="own-contest my-5 py-5">
           <h5>Make your own contest</h5>
           <div>
-            <img class="w-100" src="./assets/own-contest-dummy.png" />
-
-            <div id="user-contest"></div>
+            <div class="row">
+              <div class="col" id="emoji-dropdown-left"></div>
+              <div class="col offset-6" id="emoji-dropdown-right"></div>
+            </div>
+            <div id="own-fight"></div>
           </div>
         </div>
+
         <div class="text-content text-center my-5 py-5 border-top">
           <h1 class="my-5">The path of emojis</h1>
           <p>A lot of sentiments are expressed through emojis and they are easier to decode, for humans as well as computers.</p>
@@ -100,19 +103,36 @@
       <div class="p-1 creator">
         <p class="d-inline">
           Made with <p class="d-inline" style="color:red">&#10084;</p> by
-          <a href="allwinwilliams.github.io">Allwin Williams</a>.
+          <a href="https://allwinwilliams.com">Allwin Williams</a>.
+        </p>
+      </div>
+      <div class="p-1 feedback">
+        <p class="d-inline">
+          Feedbacks are welcome. Write them at
+          <a href="mailto:iam@allwinwilliams.com">iam@allwinwilliams.com</a>.
+        </p>
+      </div>
+      <div class="p-1 code">
+        <p class="d-inline">
+          Code can be found in
+          <a href="https://github.com/allwinwilliams/emoji-sentiments-twitter">GitHub</a>.
         </p>
       </div>
       <div class="p-1 credits">
         <p>Data from twitter throught <a href="http://emojitracker.com" target="_blank">emojitracker.com</a>.</p>
       </div>
+      <div class="p-1 mt-2 copyright">
+        <p>&copy; 2021 Allwin Williams</p>
+      </div>
     </footer>
 
+    <script src="./own-contest.js" charset="utf-8"></script>
     <script src="./script.js" charset="utf-8"></script>
     <script src="./services.js" charset="utf-8"></script>
     <script src="./helpers.js" charset="utf-8"></script>
     <script src="./header-script.js" charset="utf-8"></script>
     <script src="./bar-fight.js" charset="utf-8"></script>
+
 
   </body>
 </html>

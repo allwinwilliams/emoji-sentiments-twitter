@@ -58,6 +58,10 @@ fetch(`${SNAPSHOT_URL}/v1/rankings`)
   })
   .then(object => {
     emoji_store = object;
+    emoji_list =  _.sortBy(emoji_store, [(emoji) => - emoji.score]);
+    emoji_list = _.take(emoji_list, 50);
+    renderDropDown("#emoji-dropdown-left", emoji_list);
+    renderDropDown("#emoji-dropdown-right", emoji_list);
     console.log(JSON.stringify(emoji_store));
     //  = emoji_store.map(item =>`${item.char} - ${item.id}`);
     let evsource = new EventSource(`${STREAM_URL}/subscribe/eps`);
@@ -83,7 +87,7 @@ fetch(`${SNAPSHOT_URL}/v1/rankings`)
           counts.total.score += value;
           // console.log(counts);
           updateCharts();
-      })
+      });
     }
   })
   .catch(err => console.log(err));

@@ -205,6 +205,15 @@ let fight_3 = new BarFight(1500,
   right = ['1F44E']
 );
 
+let own_fight = new BarFight(1500,
+  100,
+  margins = {'top': 10, 'right': 300, 'bottom': 100, 'left': 300},
+  isOnlyLive = true,
+  DOM_element = "#own-fight",
+  left = [],
+  right = []
+);
+
 let fights = [fight_1, fight_2, fight_3];
 
 _.map(fights, (fight) =>{
@@ -215,4 +224,5 @@ setInterval(()=>{
   _.map(fights, (fight) =>{
     fight.updateChart();
   });
+  own_fight.updateChart();
 }, 100);

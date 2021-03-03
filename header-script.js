@@ -26,6 +26,7 @@ let switchToLive = () => {
   _.map(fights, (fight) =>{
     fight.isOnlyLive = true;
   });
+  own_fight.isOnlyLive = true;
 };
 
 let switchToTotal = () => {
@@ -36,6 +37,7 @@ let switchToTotal = () => {
   _.map(fights, (fight) =>{
     fight.isOnlyLive = false;
   });
+  own_fight.isOnlyLive = false;
 };
 
 let updateBar = (bar, positive, negative) => {
@@ -124,13 +126,13 @@ d3.select('#text-label-positive')
   .append('text')
   .text('Positive')
   .attr('fill', '#00bfd7')
-  .attr('transform', `translate(${0}, ${30})`);
+  .attr('transform', `translate(${0}, ${10})`);
 
 d3.select('#text-label-negative')
   .append('text')
   .text('Negative')
   .attr('fill', '#ff652f')
-  .attr('transform', `translate(${1200}, ${30})`);
+  .attr('transform', `translate(${1200}, ${10})`);
 
 d3.select('#text-label-positive')
   .append('text')
@@ -138,7 +140,7 @@ d3.select('#text-label-positive')
   .attr('fill', '#00bfd7')
   .attr('font-weight', 'bold')
   .attr('font-size', '1.5em')
-  .attr('transform', `translate(${0}, ${80})`);
+  .attr('transform', `translate(${0}, ${50})`);
 
 d3.select('#text-label-negative')
   .append('text')
@@ -146,14 +148,14 @@ d3.select('#text-label-negative')
   .attr('fill', '#ff652f')
   .attr('font-weight', 'bold')
   .attr('font-size', '1.5em')
-  .attr('transform', `translate(${1200}, ${80})`);
+  .attr('transform', `translate(${1200}, ${50})`);
 
 let positive_label = d3.select('#text-label-positive')
   .append('text')
   .text('')
   .attr('fill', '#00bfd7')
   .attr('font-size', '1.2em')
-  .attr('transform', `translate(${0}, ${80})`)
+  .attr('transform', `translate(${0}, ${50})`)
   .attr('x', '0')
   .attr('y', '10');
 
@@ -179,7 +181,7 @@ let negative_label = d3.select('#text-label-negative')
   .text('')
   .attr('fill', '#ff652f')
   .attr('font-size', '1.2em')
-  .attr('transform', `translate(${1200}, ${80})`);
+  .attr('transform', `translate(${1200}, ${50})`);
 
   negative_label
     .append('tspan')
@@ -196,6 +198,7 @@ let negative_label = d3.select('#text-label-negative')
     .text('😣😓😠😖👎😰')
     .attr('x', '0')
     .attr('y', '110');
+
 $(document).ready(() => {
   // setInterval(() => {
   //   if(isOnlyLive == true){
