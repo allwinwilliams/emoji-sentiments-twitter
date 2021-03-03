@@ -40,12 +40,14 @@ html, body{
 .type-toggle{
   padding: 0.2em;
   width: 15em;
-  border: 1px solid #ccc;
-  text-align: center
+  /* border: 1px solid #ccc; */
+  text-align: center;
+  background-color: #000;
+  color: #777;
 }
 
 .type-toggle.active{
-  background-color: #ccc;
+  background-color: #fff;
   color: #212121;
 }
 
@@ -65,6 +67,7 @@ html, body{
 .own-contest{
     border-top: 1px solid #eee;
 }
+
 .header-nav {
   /* position: fixed; */
 }
@@ -105,3 +108,9 @@ footer{
 #emoji-dropdown-right select{
   border:2px solid #ff652f;
  }
+
+.time-selection-buttons{
+  background-color: #000;
+  border: 1px solid #222;
+  border-radius: 100px;
+}
