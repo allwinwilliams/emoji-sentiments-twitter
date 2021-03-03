@@ -38,3 +38,13 @@ let contest = (sentiment_type = 'tears') => {
     }
   })
 };
+
+let resetCounter = () => {
+    counts.total.count = 0;
+    counts.positive.count = 0;
+    counts.negative.count = 0;
+    startTime = new Date($.now());
+    _.mapValues (emoji_store, o => {
+      o.count = 0;
+    });
+};

@@ -1,13 +1,3 @@
-let resetCounter = () => {
-    counts.total.count = 0;
-    counts.positive.count = 0;
-    counts.negative.count = 0;
-    startTime = new Date($.now());
-    _.mapValues (emoji_store, o => {
-      o.count = 0;
-    });
-};
-
 let updateCounts = () => {
   $('#live-count').text(`${counts.positive.count + counts.negative.count}`);
   $('#total-count').text(`${counts.positive.score + counts.negative.score}`);
@@ -33,6 +23,9 @@ let switchToLive = () => {
   $('#live-count-selector').addClass('active');
   $('#total-count-selector').removeClass('active');
   isOnlyLive = true;
+  _.map(fights, (fight) =>{
+    fight.isOnlyLive = true;
+  });
 };
 
 let switchToTotal = () => {
@@ -40,6 +33,9 @@ let switchToTotal = () => {
   $('#total-count-selector').addClass('active');
   $('#live-count-selector').removeClass('active');
   isOnlyLive = false;
+  _.map(fights, (fight) =>{
+    fight.isOnlyLive = false;
+  });
 };
 
 let updateBar = (bar, positive, negative) => {

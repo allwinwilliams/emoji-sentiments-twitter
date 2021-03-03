@@ -52,8 +52,9 @@ html, body{
 .btn.counter-reset:hover{
   color: #ffffff !important;
 }
+
 .header{
-  margin: 50px 100px;
+  margin-top: 15em !important;
 }
 
 .content{

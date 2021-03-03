@@ -15,51 +15,49 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
   </head>
   <body>
-    <div class="header mb-0">
-      <div class="header-nav">
+    <div class="m-0 pt-3 px-4 fixed-top bg-white border-bottom text-center">
+      <div class="navbar">
         <h1><b>Emojis on twitter</b></h1>
-        <div class="row mt-5">
-          <div class="col-2">
+        <div class="row mt-3">
+          <div class="col">
             <div id="live-count-selector" class="type-toggle rounded-pill pt-2 active" type="button" onclick="switchToLive()">
               For the past <p id="time-passed" class="d-inline"></p> seconds
               <b><p id="live-count" class="mb-0"></p></b>
             </div>
             <button id="counter-reset-button" class="mt-3 btn bg-black white rounded-pill mx-2 counter-reset" onclick="resetCounter()">Reset Counter</button>
           </div>
-          <div class="col-2">
+          <div class="col">
             <div id="total-count-selector" class="type-toggle rounded-pill pt-2" type="button" onclick="switchToTotal()">
               Total count
               <b><p id="total-count" class="mb-0"></p></b>
             </div>
           </div>
-          <div class="col-5"></div>
-          <div class="col-2">
-          </div>
         </div>
       </div>
     </div>
+    <div class="header">
+      <div id="trivia" class="text-center black mt-5 pt-5"></div>
+      <div id="header-chart-container" class="my-2">
+      </div>
 
-    <div id="trivia" class="text-center black mt-5 pt-5"></div>
-    <div id="header-chart-container" class="mb-5 pb-5 pt-2">
-    </div>
+      <!-- <img id="roller-coaster" class="w-100 mt-2" src="./assets/roller-coaster.png"/>
+      <img id="emoji-battle" class="w-100" src="./assets/emoji-battle.png"/> -->
 
-    <img id="roller-coaster" class="w-100 mt-2" src="./assets/roller-coaster.png"/>
-    <img id="emoji-battle" class="w-100" src="./assets/emoji-battle.png"/>
-
-    <div class="chart-style-options px-1 mx-auto text-center">
-      <div class="container">
-        <div class="row mx-5">
-          <div id="bar-race-button" class="col header-theme bar-race rounded-pill my-1 mx-5 active" onclick="barRace()">
-            Bar race
-          </div>
-          <div id="roller-coaster-button" class="col header-theme roller-coaster rounded-pill mx-5 my-1" onclick="rollerCoaster()">
-            Roller coster
-          </div>
-          <div id="emoji-battle-button" class="col header-theme emoji-battle rounded-pill mx-5 my-1" onclick="emojiBattle()">
-            Emoji battle
+      <!-- <div class="chart-style-options px-1 mx-auto text-center">
+        <div class="container">
+          <div class="row mx-5">
+            <div id="bar-race-button" class="col header-theme bar-race rounded-pill my-1 mx-5 active" onclick="barRace()">
+              Bar race
+            </div>
+            <div id="roller-coaster-button" class="col header-theme roller-coaster rounded-pill mx-5 my-1" onclick="rollerCoaster()">
+              Roller coster
+            </div>
+            <div id="emoji-battle-button" class="col header-theme emoji-battle rounded-pill mx-5 my-1" onclick="emojiBattle()">
+              Emoji battle
+            </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="content mt-5 pt-5">
@@ -67,15 +65,15 @@
         <h5>Pair contests</h5>
         <div class="text-center mt-5">
           <div class="my-4">
-            <h6>Tears<h6>
+            <h6 class="pt-5">Tears<h6>
             <div id="fight-1"></div>
           </div>
           <div class="my-4">
-            <h6>Hearts</h6>
+            <h6 class="pt-5">Hearts</h6>
             <div id="fight-2"></div>
           </div>
           <div class="my-4">
-            <h6>Thumbs</h6>
+            <h6 class="pt-5">Thumbs</h6>
             <div id="fight-3"></div>
           </div>
         </div>
@@ -84,7 +82,7 @@
           <h5>Make your own contest</h5>
           <div>
             <img class="w-100" src="./assets/own-contest-dummy.png" />
-            
+
             <div id="user-contest"></div>
           </div>
         </div>

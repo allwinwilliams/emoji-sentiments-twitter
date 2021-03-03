@@ -43,6 +43,7 @@ class BarFight{
       left: {
         emoji_codes: this.left,
         count: 0,
+        score: 0,
         color: '#00bfd7',
         DOM_elements: {
           label: this.textGroup
@@ -51,7 +52,7 @@ class BarFight{
             .attr('font-size', '2em')
             .attr('text-align', 'center')
             .attr('transform', `translate(${0}, ${50})`),
-          count: this.textGroup
+          number: this.textGroup
             .append('text')
             .text(0)
             .attr('text-align', 'center')
@@ -61,6 +62,7 @@ class BarFight{
       right: {
         emoji_codes: this.right,
         count: 0,
+        score: 0,
         color: '#ff652f',
         DOM_elements: {
           label: this.textGroup
@@ -68,7 +70,7 @@ class BarFight{
             .attr('font-size', '2em')
             .attr('text-align', 'center')
             .attr('transform', `translate(${1200}, ${50})`),
-          count: this.textGroup
+          number: this.textGroup
             .append('text')
             .text(0)
             .attr('text-align', 'center')
@@ -100,6 +102,14 @@ class BarFight{
     return mycount;
   }
 
+  sum_scores(side){
+    let myscore = _.reduce(side, (count, emoji_code) => {
+      return count + dataValues(emoji_code).score
+    }, 0);
+    // console.log(side, mycount);
+    return myscore;
+  }
+
   renderEmojiChars(side){
     let emoji_chars = _.reduce(side, (text, emoji_code) => {
       // return text + dataValues(emoji_code).char
@@ -113,17 +123,25 @@ class BarFight{
   }
 
   updateChart(){
+    let left_count = this.sum_counts(this.left);
+    let right_count = this.sum_counts(this.right);
+
+    this.counts.left.count = left_count;
+    this.counts.right.count = right_count;
+
+    let left_score = this.sum_scores(this.left);
+    let right_score = this.sum_scores(this.right);
+    this.counts.left.score = left_score;
+    this.counts.right.score = right_score;
+    
+    this.updateText(this.left, this.right);
+
     if(this.isOnlyLive == true){
-      let left_count = this.sum_counts(this.left);
-      let right_count = this.sum_counts(this.right);
-      this.counts.left.count = left_count;
-      this.counts.right.count = right_count;
-
-      this.updateText(this.left, this.right);
-
       updateBar(this.barChart, left_count, right_count);
-    }else{
-      updateBar(this.barChart, counts.positive.score, counts.negative.score);
+    }
+
+    if(this.isOnlyLive == false){
+      updateBar(this.barChart, left_score, right_score);
     }
   }
 
@@ -134,13 +152,26 @@ class BarFight{
     this.counts.right.DOM_elements.label
       .text(this.renderEmojiChars(this.right));
 
-    this.counts.left.DOM_elements.count
-      .text(this.counts.left.count)
-      .attr('fill', this.counts.left.color);
+    if(this.isOnlyLive == true){
+      this.counts.left.DOM_elements.number
+        .text(this.counts.left.count)
+        .attr('fill', this.counts.left.color);
 
-    this.counts.right.DOM_elements.count
-      .text(this.counts.right.count)
-      .attr('fill', this.counts.right.color);
+      this.counts.right.DOM_elements.number
+        .text(this.counts.right.count)
+        .attr('fill', this.counts.right.color);
+    }
+
+    if(this.isOnlyLive == false){
+      this.counts.left.DOM_elements.number
+        .text(this.counts.left.score)
+        .attr('fill', this.counts.left.color);
+
+      this.counts.right.DOM_elements.number
+        .text(this.counts.right.score)
+        .attr('fill', this.counts.right.color);
+    }
+
   }
 
   render(){
@@ -165,8 +196,6 @@ let fight_1 = new BarFight(1500,
   right = ['1F62D']
 );
 
-fight_1.render();
-
 let fight_2 = new BarFight(1500,
   100,
   margins = {'top': 10, 'right': 300, 'bottom': 100, 'left': 300},
@@ -175,9 +204,6 @@ let fight_2 = new BarFight(1500,
   left = ['2764'],
   right = ['1F494']
 );
-
-
-fight_2.render();
 
 let fight_3 = new BarFight(1500,
   100,
@@ -188,10 +214,14 @@ let fight_3 = new BarFight(1500,
   right = ['1F44E']
 );
 
-fight_3.render();
+let fights = [fight_1, fight_2, fight_3];
+
+_.map(fights, (fight) =>{
+  fight.render();
+});
 
 setInterval(()=>{
-  fight_1.updateChart();
-  fight_2.updateChart();
-  fight_3.updateChart();
+  _.map(fights, (fight) =>{
+    fight.updateChart();
+  });
 }, 100);
