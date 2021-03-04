@@ -2,7 +2,7 @@ class BarFight{
   constructor(
     width = 1500,
     height = 200,
-    margins = {'top': 100, 'right': 300, 'bottom': 100, 'left': 300},
+    margins = {'top': 100, 'right': 100, 'bottom': 100, 'left': 100},
     isOnlyLive = true,
     DOM_element = "body",
     left = [],

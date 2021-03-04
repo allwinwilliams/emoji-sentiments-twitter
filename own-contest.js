@@ -1,35 +1,35 @@
 
 let emoji_list = []
 let renderDropDown = (DOMElement, list) => {
+  console.log(list);
   var dropDown = d3.select(DOMElement)
       .append("select")
       .attr("class", "selection")
       .attr("name", "emoji-list")
 
-  dropDown
-    .append('option')
-    .text('Select emoji');
+    dropDown
+      .append('option')
+      .text('Select emoji')
+      .attr('disabled', 'true')
+      .attr('class', 'disable');
 
-  var options = dropDown.selectAll("option")
+
+  var options = dropDown
+    .selectAll("option:not([disabled])")
     .data(list)
     .enter()
     .append("option");
 
-  options.text(function(d) {
-      return d.char;
-    })
-    .attr("value", function(d) {
-      return d.id;
-    });
+  options
+    .text(d =>  d.char)
+    .attr("value", d =>  d.id);
 
   $("#emoji-dropdown-left select").change(() => {
-      console.log('left changed');
       own_fight.left = [$('#emoji-dropdown-left select').val()];
       own_fight.render();
   });
 
   $("#emoji-dropdown-right select").change(() => {
-      console.log('right changed');
       own_fight.right = [$('#emoji-dropdown-right select').val()];
       own_fight.render();
   });
