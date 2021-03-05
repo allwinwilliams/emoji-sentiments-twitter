@@ -114,7 +114,7 @@ const barElements = barChart
 const textLabelGroup = svg
   .append('g')
   .attr('id', 'text-elements')
-  .attr('transform', `translate(${100}, ${100})`);
+  .attr('transform', `translate(${100}, ${120})`);
 
 const textLabels = textLabelGroup
   .selectAll('g')
