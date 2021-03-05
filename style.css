@@ -5,6 +5,11 @@ html, body{
 *{
   font-family: 'Montserrat', sans-serif;
 }
+
+body{
+  background-color: #fafafa;
+}
+
 .positive{
   color: #00bfd7;
 }
@@ -117,4 +122,9 @@ footer{
 .svg-container{
   width: 90%;
   margin: 5%;
+}
+
+.navbar-container{
+  box-shadow: 0px 1px 5px 0px #eee;
+  background: rgb(255 255 255 / 90%);
 }

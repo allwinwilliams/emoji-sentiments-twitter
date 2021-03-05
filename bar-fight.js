@@ -39,7 +39,7 @@ class BarFight{
     this.textGroup = this.svg
       .append('g')
       .attr('class', 'text-elements')
-      .attr('transform', `translate(${this.width / 12}, ${2})`);
+      .attr('transform', `translate(${this.width / 12}, ${0})`);
 
     this.counts = {
       left: {
@@ -53,12 +53,12 @@ class BarFight{
             .text(this.renderEmojiChars(this.left))
             .attr('font-size', '2em')
             .attr('text-align', 'center')
-            .attr('transform', `translate(${0}, ${50})`),
+            .attr('transform', `translate(${0}, ${60})`),
           number: this.textGroup
             .append('text')
             .text(0)
             .attr('text-align', 'center')
-            .attr('transform', `translate(${0}, ${100})`)
+            .attr('transform', `translate(${0}, ${90})`)
         }
       },
       right: {
@@ -71,12 +71,12 @@ class BarFight{
             .append('text')
             .attr('font-size', '2em')
             .attr('text-align', 'center')
-            .attr('transform', `translate(${1200}, ${50})`),
+            .attr('transform', `translate(${1200}, ${60})`),
           number: this.textGroup
             .append('text')
             .text(0)
             .attr('text-align', 'center')
-            .attr('transform', `translate(${1200}, ${100})`)
+            .attr('transform', `translate(${1200}, ${90})`)
         }
       }
     };
