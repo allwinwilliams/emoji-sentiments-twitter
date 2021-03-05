@@ -62,7 +62,7 @@ fetch(`${SNAPSHOT_URL}/v1/rankings`)
     emoji_list = _.take(emoji_list, 50);
     renderDropDown("#emoji-dropdown-left", emoji_list);
     renderDropDown("#emoji-dropdown-right", emoji_list);
-    console.log(JSON.stringify(emoji_store));
+    // console.log(JSON.stringify(emoji_store));
     //  = emoji_store.map(item =>`${item.char} - ${item.id}`);
     let evsource = new EventSource(`${STREAM_URL}/subscribe/eps`);
     evsource.onmessage = (event) => {

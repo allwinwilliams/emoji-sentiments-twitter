@@ -83,7 +83,6 @@ class BarFight{
   }
 
   updateBar(chart, left, right){
-      console.log(chart, left, right);
       const distance = graphWidth / (left + right);
       chart
       .selectAll('rect')

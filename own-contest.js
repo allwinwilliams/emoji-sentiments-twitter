@@ -1,7 +1,6 @@
 
 let emoji_list = []
 let renderDropDown = (DOMElement, list) => {
-  console.log(list);
   var dropDown = d3.select(DOMElement)
       .append("select")
       .attr("class", "selection")
