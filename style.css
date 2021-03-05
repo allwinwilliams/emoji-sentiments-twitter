@@ -32,7 +32,6 @@ html, body{
   text-align: center;
   display: inline-block;
 	position: relative;
-	width: 100%;
 	vertical-align: middle;
 	overflow: hidden;
 }
@@ -61,7 +60,7 @@ html, body{
 
 .content{
   border-top: 1px solid #eee;
-  min-height: 500px;
+  min-height: 200px;
 }
 
 .own-contest{
@@ -113,4 +112,9 @@ footer{
   background-color: #000;
   border: 1px solid #222;
   border-radius: 100px;
+}
+
+.svg-container{
+  width: 90%;
+  margin: 5%;
 }

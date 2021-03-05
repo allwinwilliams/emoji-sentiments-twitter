@@ -23,9 +23,11 @@ class BarFight{
 
     this.svg = d3.select(this.DOM_element)
       .append('svg')
-      .attr('width', this.width)
+      .attr('width', '100%')
       .attr('height', this.height)
-      .attr('class', 'bar-fight-chart');
+      .attr('class', 'bar-fight-chart')
+      .attr('viewBox', `0 0 ${this.width} ${this.height}`)
+      .attr('preserveAspectRatio', 'xMinYMin meet');
 
     this.barChart = this.svg
       .append('g')
@@ -37,7 +39,7 @@ class BarFight{
     this.textGroup = this.svg
       .append('g')
       .attr('class', 'text-elements')
-      .attr('transform', `translate(${this.width / 12}, ${0})`);
+      .attr('transform', `translate(${this.width / 12}, ${2})`);
 
     this.counts = {
       left: {

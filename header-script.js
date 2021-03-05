@@ -89,9 +89,11 @@ let isOnlyLive = true;
 
 const svg = d3.select('#header-chart-container')
   .append('svg')
-  .attr('width', width)
-  .attr('height', height)
-  .attr('id', 'header-chart');
+  .attr('width', '100%')
+  // .attr('height', height)
+  .attr('id', 'header-chart')
+  .attr('viewBox', `0 0 ${width} ${height}`)
+  .attr('preserveAspectRatio', 'xMinYMin meet');
 
 const barChart = svg.append('g')
   .attr('width', graphWidth)
