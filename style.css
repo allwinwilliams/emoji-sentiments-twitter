@@ -95,7 +95,7 @@ footer{
   background-color: #eee;
 }
 
-.credits a, .credits a:visited, .creator a, .creator a:visited, .code a, .code a:visited, .feedback a, .feedback a:visited{
+.credits a, .credits a:visited, .creator a, .creator a:visited, .code a, .code a:visited, .feedback a, .feedback a:visited, .blog a, .blog a:visited{
   color: #212121 !important;
   text-decoration: underline;
 }
