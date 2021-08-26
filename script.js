@@ -13,7 +13,7 @@ let playEmojiTone = (emoji) => {
   // }
   synth.triggerAttackRelease(
     Tone.Midi(emoji.midiValue).toFrequency(),
-    0.08, "+0.1n", 0.4
+    0.1, "+0.001n", 0.6
   );
 }
 
