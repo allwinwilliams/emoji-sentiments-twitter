@@ -73,6 +73,10 @@ fetch(`${SNAPSHOT_URL}/v1/rankings`)
 
           }
           emoji_store[key].count += value;
+          if(audio_on && emoji_store[key].sentiment){
+            playEmojiTone(emoji_store[key]);
+          }
+
           if(emoji_store[key].sentiment == "positive"){
             counts.positive.count += value;
             counts.positive.score += value;

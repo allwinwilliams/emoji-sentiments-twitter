@@ -55,6 +55,9 @@ body{
   color: #212121;
 }
 
+.btn.counter-reset{
+  height: 80%;
+}
 .btn.counter-reset:hover{
   color: #ffffff !important;
 }
@@ -127,4 +130,21 @@ footer{
 .navbar-container{
   box-shadow: 0px 1px 5px 0px #eee;
   background: rgb(255 255 255 / 90%);
+}
+
+#audio-button{
+ height: 100%;
+}
+
+#audio-button #audio-on{
+  background-color: #000;
+  color: #fff;
+  border-radius: 100px;
+}
+
+#audio-button #audio-off{
+  background-color: #fff;
+  color: #000;
+  border-radius: 100px;
+  border: 1px solid #222;
 }

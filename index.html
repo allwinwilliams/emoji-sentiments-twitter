@@ -13,16 +13,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.min.js" integrity="sha512-y/gX3imWQKHaL1WVyuaK5HE6gMjpju/NV+nC9nz5cmoCS3pjgwOYlZ8ToBNlu4qxiQ/EIMRnYhY/WX70tVwuTw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
     <div class="m-0 pt-3 px-4 fixed-top navbar-container border-bottom text-center">
       <div class="navbar row">
-        <div class="text-left col-12 col-lg-6">
+        <div class="text-left col-12 col-lg-4">
           <h1><b>Sentiments of emojis</b></h1>
           <p>Using real-time emojis usage from twitter to visualise sentiments<p>
         </div>
-        <div class="col-12 col-lg-6 row">
-          <div class="col-4">
+        <div class="col-12 col-lg-8 row">
+          <div class="col-3">
             <button id="counter-reset-button" class="mt-3 btn bg-black white rounded-pill mx-1 counter-reset" onclick="resetCounter()">Reset Counter</button>
           </div>
           <div class="row mt-3 time-selection-buttons">
@@ -36,6 +37,20 @@
               <div id="total-count-selector" class="type-toggle rounded-pill pt-2" type="button" onclick="switchToTotal()">
                 Total count
                 <b><p id="total-count" class="mb-0"></p></b>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 mt-3">
+            <div class="mx-2 mx-lg-5">
+              <div type="button" id="audio-button">
+                  <div id="audio-on" class="py-1">
+                    <img src="./assets/volume-on.png" />
+                    Audio on
+                  </div>
+                  <div id="audio-off" class="py-1 d-none">
+                    <img src="./assets/volume-off.png" />
+                    Audio off
+                  </div>
               </div>
             </div>
           </div>
@@ -125,7 +140,7 @@
       </div>
       <div class="p-1 blog">
         <p class="d-inline">
-          To read about my journey through this project, 
+          To read about my journey through this project,
           <a target="_blank" href="https://allwinwilliams.medium.com/sentiments-of-emojis-21860c4f8881">click here</a>.
         </p>
       </div>
@@ -146,7 +161,7 @@
     <script src="./bar-fight.js" charset="utf-8"></script>
   </body>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LJKNX12RYY"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJKNX12RYY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

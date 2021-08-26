@@ -1,3 +1,49 @@
+let sound, synth, am_1, am_2;
+let audio_on = false;
+let audio_enabled = false;
+let playEmojiTone = (emoji) => {
+  // if(emoji.sentiment == "positive"){
+  //   am_1.triggerAttackRelease(Tone.Midi(emoji.midiValue).toFrequency(), 1);
+  // } else if (emoji.sentiment == "negative"){
+  //   am_2.triggerAttackRelease(Tone.Midi(emoji.midiValue).toFrequency(), 1);
+  // }
+  // console.log(emoji.midiValue);
+  // if(emoji.sentiment == "positive"){
+  //
+  // }
+  synth.triggerAttackRelease(
+    Tone.Midi(emoji.midiValue).toFrequency(),
+    0.08, "+0.1n", 0.4
+  );
+}
+
+$('#audio-button').click(async () => {
+  if(audio_enabled == false){
+    console.log('audio is ready');
+    await Tone.start();
+    // am_1 = new Tone.AMSynth(Tone.Synth).toDestination();
+    // am_2 = new Tone.AMSynth(Tone.Synth).toDestination();
+    // sound = Tone.Synth;
+    sound = Tone.MonoSynth;
+    synth = new Tone.PolySynth(sound).toDestination();
+    // synth.maxPolyphony = 64;
+
+    // synth.triggerAttackRelease([Tone.Midi(60).toFrequency()], 0.1);
+    audio_enabled = true;
+  }
+  if(audio_on == false){
+    audio_on = true;
+    $('#audio-off').removeClass('d-none');
+    $('#audio-on').addClass('d-none');
+  } else if(audio_on == true){
+    audio_on = false;
+    $('#audio-off').addClass('d-none');
+    $('#audio-on').removeClass('d-none');
+  }
+
+});
+
+
 let startTime = new Date($.now());
 $('#roller-coaster').hide();
 $('#emoji-battle').hide();
