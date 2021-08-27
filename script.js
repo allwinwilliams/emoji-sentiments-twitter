@@ -1,19 +1,11 @@
-let sound, synth, am_1, am_2;
+let sound, synth;
 let audio_on = false;
 let audio_enabled = false;
 let audioType = "both";
-let filter, chorus, jcReverb, reverb;
+let filter, reverb;
 
 let playEmojiTone = (emoji) => {
-  // if(emoji.sentiment == "positive"){
-  //   am_1.triggerAttackRelease(Tone.Midi(emoji.midiValue).toFrequency(), 1);
-  // } else if (emoji.sentiment == "negative"){
-  //   am_2.triggerAttackRelease(Tone.Midi(emoji.midiValue).toFrequency(), 1);
-  // }
-  // console.log(emoji.midiValue);
-  // if(emoji.sentiment == "positive"){
-  //
-  // }
+
   synth.chain(filter, reverb, Tone.Master);
   if(audioType == "both"){
     synth.triggerAttackRelease(
@@ -52,12 +44,10 @@ $('#audio-button').click(async () => {
     filter = new Tone.Filter();
     reverb = new Tone.Reverb();
     reverb.generate();
-    // am_1 = new Tone.AMSynth(Tone.Synth).toDestination();
-    // am_2 = new Tone.AMSynth(Tone.Synth).toDestination();
     // sound = Tone.Synth;
-    sound = Tone.MonoSynth;
+    // sound = Tone.MonoSynth;
     // synth = new Tone.PolySynth(sound).toDestination();
-    synth.maxPolyphony = 64;
+    synth.maxPolyphony = 48;
     // synth.maxPolyphony = 64;
 
     // synth.triggerAttackRelease([Tone.Midi(60).toFrequency()], 0.1);
