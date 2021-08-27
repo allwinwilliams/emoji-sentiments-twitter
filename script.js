@@ -1,6 +1,8 @@
 let sound, synth, am_1, am_2;
 let audio_on = false;
 let audio_enabled = false;
+let audioType = "both";
+
 let playEmojiTone = (emoji) => {
   // if(emoji.sentiment == "positive"){
   //   am_1.triggerAttackRelease(Tone.Midi(emoji.midiValue).toFrequency(), 1);
@@ -11,10 +13,23 @@ let playEmojiTone = (emoji) => {
   // if(emoji.sentiment == "positive"){
   //
   // }
-  synth.triggerAttackRelease(
-    Tone.Midi(emoji.midiValue).toFrequency(),
-    0.1, "+0.001n", 0.6
-  );
+  if(audioType == "both"){
+    synth.triggerAttackRelease(
+      Tone.Midi(emoji.midiValue).toFrequency(),
+      0.08, "+0.001n", 0.6
+    );
+  } else if(audioType == "positive" && emoji.sentiment == "positive"){
+    synth.triggerAttackRelease(
+      Tone.Midi(emoji.midiValue).toFrequency(),
+      0.1, "+0.001n", 0.6
+    );
+  } else if(audioType == "negative" && emoji.sentiment == "negative"){
+    synth.triggerAttackRelease(
+      Tone.Midi(emoji.midiValue).toFrequency(),
+      0.1, "+0.001n", 0.6
+    );
+  }
+
 }
 
 $('#audio-button').click(async () => {
@@ -35,14 +50,19 @@ $('#audio-button').click(async () => {
     audio_on = true;
     $('#audio-off').removeClass('d-none');
     $('#audio-on').addClass('d-none');
+    $('#audio-options').removeClass('invisible');
   } else if(audio_on == true){
     audio_on = false;
     $('#audio-off').addClass('d-none');
     $('#audio-on').removeClass('d-none');
+    $('#audio-options').addClass('invisible');
   }
-
 });
 
+$('#audio-options').change(() => {
+  // console.log($('input[name=audio-type]:checked').val());
+  audioType = $('input[name=audio-type]:checked').val();
+});
 
 let startTime = new Date($.now());
 $('#roller-coaster').hide();

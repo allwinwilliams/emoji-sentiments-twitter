@@ -41,6 +41,10 @@ body{
 	overflow: hidden;
 }
 
+.navbar h1{
+    font-size: 2em;
+}
+
 .type-toggle{
   padding: 0.2em;
   width: 12em;
