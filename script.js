@@ -2,6 +2,7 @@ let sound, synth, am_1, am_2;
 let audio_on = false;
 let audio_enabled = false;
 let audioType = "both";
+let filter, chorus, jcReverb, reverb;
 
 let playEmojiTone = (emoji) => {
   // if(emoji.sentiment == "positive"){
@@ -13,34 +14,49 @@ let playEmojiTone = (emoji) => {
   // if(emoji.sentiment == "positive"){
   //
   // }
+  synth.chain(filter, reverb, Tone.Master);
   if(audioType == "both"){
     synth.triggerAttackRelease(
       Tone.Midi(emoji.midiValue).toFrequency(),
-      0.08, "+0.001n", 0.6
+      0.05, "+0.0001n", 0.6
     );
   } else if(audioType == "positive" && emoji.sentiment == "positive"){
     synth.triggerAttackRelease(
       Tone.Midi(emoji.midiValue).toFrequency(),
-      0.1, "+0.001n", 0.6
+      0.1, "+0.0001n", 0.6
     );
   } else if(audioType == "negative" && emoji.sentiment == "negative"){
     synth.triggerAttackRelease(
       Tone.Midi(emoji.midiValue).toFrequency(),
-      0.1, "+0.001n", 0.6
+      0.1, "+0.0001n", 0.6
     );
   }
-
 }
-
 $('#audio-button').click(async () => {
   if(audio_enabled == false){
     console.log('audio is ready');
     await Tone.start();
+    synth = new Tone.PolySynth(
+              Tone.Synth, {
+              'oscillator': {
+                  'type': "sawtooth"
+              },
+              'envelope': {
+                  'attack': 0.5,
+                  'decay': 0.0,
+                  'sustain': 1.0,
+                  'release': 1.0
+              },
+              'volume': -5
+          });
+    filter = new Tone.Filter();
+    reverb = new Tone.Reverb();
+    reverb.generate();
     // am_1 = new Tone.AMSynth(Tone.Synth).toDestination();
     // am_2 = new Tone.AMSynth(Tone.Synth).toDestination();
     // sound = Tone.Synth;
     sound = Tone.MonoSynth;
-    synth = new Tone.PolySynth(sound).toDestination();
+    // synth = new Tone.PolySynth(sound).toDestination();
     synth.maxPolyphony = 48;
     // synth.maxPolyphony = 64;
 
