@@ -41,6 +41,7 @@ $('#audio-button').click(async () => {
     // sound = Tone.Synth;
     sound = Tone.MonoSynth;
     synth = new Tone.PolySynth(sound).toDestination();
+    synth.maxPolyphony = 48;
     // synth.maxPolyphony = 64;
 
     // synth.triggerAttackRelease([Tone.Midi(60).toFrequency()], 0.1);
@@ -100,6 +101,7 @@ let emojiBattle = () => {
 
 let updateTime = () => {
   $('#time-passed').text(`${Math.floor((new Date($.now()) - startTime) / 1000) }`);
+  $('#current-time').text(`Time: ${(new Date($.now())) }`);
 };
 
 $(document).ready(() => {
