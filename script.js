@@ -18,17 +18,17 @@ let playEmojiTone = (emoji) => {
   if(audioType == "both"){
     synth.triggerAttackRelease(
       Tone.Midi(emoji.midiValue).toFrequency(),
-      0.05, "+0.0001n", 0.6
+      0.2, "+0.0001n", 0.4
     );
   } else if(audioType == "positive" && emoji.sentiment == "positive"){
     synth.triggerAttackRelease(
       Tone.Midi(emoji.midiValue).toFrequency(),
-      0.1, "+0.0001n", 0.6
+      0.2, "+0.0001n", 0.4
     );
   } else if(audioType == "negative" && emoji.sentiment == "negative"){
     synth.triggerAttackRelease(
       Tone.Midi(emoji.midiValue).toFrequency(),
-      0.1, "+0.0001n", 0.6
+      0.2, "+0.0001n", 0.4
     );
   }
 }
@@ -44,10 +44,10 @@ $('#audio-button').click(async () => {
               'envelope': {
                   'attack': 0.5,
                   'decay': 0.0,
-                  'sustain': 1.0,
-                  'release': 1.0
+                  'sustain': 0.75,
+                  'release': 0.5
               },
-              'volume': -5
+              'volume': -6
           });
     filter = new Tone.Filter();
     reverb = new Tone.Reverb();
@@ -57,7 +57,7 @@ $('#audio-button').click(async () => {
     // sound = Tone.Synth;
     sound = Tone.MonoSynth;
     // synth = new Tone.PolySynth(sound).toDestination();
-    synth.maxPolyphony = 48;
+    synth.maxPolyphony = 64;
     // synth.maxPolyphony = 64;
 
     // synth.triggerAttackRelease([Tone.Midi(60).toFrequency()], 0.1);
