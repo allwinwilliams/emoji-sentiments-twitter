@@ -60,14 +60,14 @@ body{
 }
 
 .btn.counter-reset{
-  height: 80%;
+  height: 4em;
 }
 .btn.counter-reset:hover{
   color: #ffffff !important;
 }
 
 .header{
-  margin-top: 15em !important;
+  margin-top: 16em !important;
 }
 
 .content{
